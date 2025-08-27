@@ -3,6 +3,12 @@ class StringCalculator
   def self.add(string_numbers)
     return 0 if string_numbers.empty?
 
+    # Return the number itself if the input is a single number (only digits)
+    if string_numbers.match?(/\A\d+\z/)
+      return string_numbers.to_i
+    end
+
+
     # For now, just handle a single number or empty string
     string_numbers.split(',').map(&:to_i).sum
   end
